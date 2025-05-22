@@ -1,5 +1,7 @@
 import React from "react";
 import "./Information.css";
+import { useAuth } from "../../context/AuthContext.jsx";
+
 
 const Information = () => (
   <div className="info-container">

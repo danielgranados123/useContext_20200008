@@ -39,6 +39,19 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const home = () => {
+    try {
+      localStorage.removeItem("user");
+      setUser(null);
+      setIsLoggedIn(false);
+      return true;
+    } catch (error) {
+      console.error("Error al intentar iniciar sesión:", error);
+      toast.error("Error al intentar iniciar sesión.");
+      return false;
+    }
+  };
+
   // verifica si hay un usuario guardado en el localStorage al cargar la aplicación
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
@@ -49,7 +62,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, Login, logOut, isLoggedIn, setIsLoggedIn }}
+      value={{ user, Login, logOut, home, isLoggedIn, setIsLoggedIn }}
     >
       {children}
     </AuthContext.Provider>

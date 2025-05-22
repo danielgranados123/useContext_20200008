@@ -50,8 +50,10 @@ const Login = () => {
             placeholder="Contraseña"
           />
         </label>
-        <button type="submit">Entrar</button>
+        <button className="login" type="submit">Ingresar</button>
       </form>
+    <br />
+    <a className= "guest" href="/extra">Entrar como invitado</a>
       <Toaster
         position="top-right"
         reverseOrder={false}
